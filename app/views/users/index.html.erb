@@ -15,11 +15,14 @@
           </tr>
         </thead>
         <thody>
+        <% @users.each do |user| %>
           <tr>
             <td></td>
-            <td></td>
-            <td></td>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
           </tr>
+        <% end %>
         </thody>
       </table>
     </div>
