@@ -13,7 +13,7 @@ class BooksController < ApplicationController
     else
     @books = Book.all
     @user = current_user
-     render books_path
+     render 'index'
     end
   end
 

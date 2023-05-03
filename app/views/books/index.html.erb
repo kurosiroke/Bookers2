@@ -1,7 +1,15 @@
 <div class="container px-5 px-sm-0">
+  <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
   <div class="row">
     <div class="col-md-3">
-      <%= render 'books/list', book: @book, user: @user %>
+    <%= render 'books/list', book: @book_new, user: @user %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -22,7 +30,7 @@
               <%= image_tag book.user.get_profile_image(100,100) %>
               <% end %>
             <td>
-              <%= link_to books_path do %>
+              <%= link_to book_path(book.id) do %>
               <%= book.title %>
               <% end %>
             </td>
