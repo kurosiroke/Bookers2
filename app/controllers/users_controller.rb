@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.usre_id = current_user.id
+    @user.usre_id = Current_user.id
     if @user.save
       radirect_to user_path
     else
